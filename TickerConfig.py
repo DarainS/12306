@@ -5,7 +5,7 @@
 # 如果这个时候捡漏捡到的话，也是可以付款成功的，也就是说，捡漏+候补，可以最大程度提升抢票成功率
 
 # 刷票模式：1=刷票 2=候补+刷票
-TICKET_TYPE = 1
+TICKET_TYPE = 2
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
@@ -59,7 +59,8 @@ IS_AUTO_CODE = True
 AUTO_CODE_TYPE = 2
 
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
-HOST = "120.77.154.140:8000"
+# HOST = "120.77.154.140:8000"
+HOST = "captcha:80"
 REQ_URL = "/verify/base64/"
 HTTP_TYPE = "http"
 # HOST="12306.yinaoxiong.cn" #备用服务器稳定性较差
@@ -116,25 +117,26 @@ IS_PROXY = 0
 OPEN_TIME = "9:00:00"
 # 1=使用selenium获取devicesID
 # 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录一直302的请改为配置1
-# 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
-COOKIE_TYPE = 1
+# 3=自己打开浏览器
+# 在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
+COOKIE_TYPE = 3
 # 如果COOKIE_TYPE=1，则需配置chromeDriver路径,下载地址http://chromedriver.storage.googleapis.com/index.html
 # chromedriver配置版本只要和chrome的大版本匹配就行
 CHROME_PATH = "/Users/shougang.deng/Downloads/Downloads/chromedriver"
 
 # 为了docker37 准备的环境变量，windows环境可以不用管这个参数
 CHROME_CHROME_PATH = "/opt/google/chrome/google-chrome"
-CHROME_CHROME_PATH = "/Users/shougang.deng/Downloads/Downloads/chromedriver"
+# CHROME_CHROME_PATH = "/Users/shougang.deng/Downloads/Downloads/chromedriver"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
-RAIL_EXPIRATION = ""
-RAIL_DEVICEID = ""
+RAIL_EXPIRATION = "IV6Sg41MFjMIr6cdZ3PZUZOwWl6cvQEdMTP5PmC1s64pqqvcVFa3a5NMajGhnm6pqz4Z6Zs2TVKBtGNJVdN_886Pv9SrgI1iIp6kDH5UjrOeecLqsnKQSZlqE9L-5LSoV3tB7SPbiXQ91pQ4gdbQgGnJ1XcF7hKo"
+RAIL_DEVICEID = "1577402345007"
 # RAIL_EXPIRATION = "1577034103293"
 # RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
 
 
 # 1=>为一直随机ua,2->只启动的时候随机一次ua
-RANDOM_AGENT = 1
+RANDOM_AGENT = 2
 
 PASSENGER_TICKER_STR = {
     '一等座': 'M',
